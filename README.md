@@ -8,4 +8,4 @@ Packages/Libraries:
 4) npx prisma generate
 5) npm install @clerk/nextjs
 6) npx shadcn@latest init
-7) npx shadcn@latest add input label button
+7) npx shadcn@latest add input label button card

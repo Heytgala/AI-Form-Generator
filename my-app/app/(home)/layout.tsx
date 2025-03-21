@@ -7,6 +7,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
         <div className='border-b'>
+          {/* NavBar */}
             <nav className='flex items-center justify-between max-w-7xl mx-auto py-2'>
                 <Logo/>
                 <div>
