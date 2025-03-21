@@ -1,5 +1,26 @@
 import React from 'react'
 import GenerateFormInput from './GenerateFormInput'
+import { Button } from './ui/button'
+
+type SuggestionText = {
+  label:string,
+  text: string
+}  
+
+const suggestionbutton: SuggestionText[] = [
+  {
+    label: "Job Application",
+    text: "Develop a basic job application form that serve as one-page solution form collecting essential information from applicants."
+  },
+  {
+    label: "Registration Form",
+    text: "Create a course registration form suitable for any school or institution for collecting essential information from applicants."
+  },
+  {
+    label: "Feedback Form",
+    text: "Create a client feedback form to gather valuable insights from any clients."
+  },
+]
 
 const HeroSection = () => {
   return (
@@ -13,6 +34,15 @@ const HeroSection = () => {
         </div>
         {/** Form Input */}  
         <GenerateFormInput/>
+        <div className='grid grid-cols-4 gap-3'>
+          
+          {
+            suggestionbutton.map((item:SuggestionText,index:number)=>(
+              <Button className='rounded-full h-10' variant={'outline'}>{item.label}</Button>
+            ))
+          }
+        </div>
+        
     </section>
   )
 }
