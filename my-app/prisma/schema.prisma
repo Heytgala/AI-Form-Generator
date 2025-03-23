@@ -26,3 +26,11 @@ model Submissions{
   form Form @relation(fields: [formId],references: [id])
   content Json 
 }
+
+model Subscription {
+  id         Int      @id @default(autoincrement())
+  userId     String
+  subscribed Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
