@@ -8,7 +8,14 @@ import { Badge } from './ui/badge'
 
 const Pricing = () => {
   return (
-    <div className='grid grid-cols-3 gap-6'>
+    <div>
+        <div className='text-center mb-16'>
+            <h1 className='font-extrabold text-3xl'>
+                Plans & Pricing
+            </h1>
+            <p className='text-gray-500'>Receive unlimited credits when you pay, & save your plan.</p>
+        </div>
+        <div className='grid grid-cols-3 gap-6'>
         {
             pricingPlan.map((plan:PricingPlan, index:number)=>(
                 <Card className={`${plan.level === "Enterprise" && "bg-[#1c1c1c] text-white"} w-[350px] flex flex-col justify-between`} key={index}>
@@ -51,7 +58,9 @@ const Pricing = () => {
                 
             ))
         }
+        </div>
     </div>
+    
   )
 }
 

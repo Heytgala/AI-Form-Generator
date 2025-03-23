@@ -38,7 +38,7 @@ const HeroSection = () => {
           
           {
             suggestionbutton.map((item:SuggestionText,index:number)=>(
-              <Button className='rounded-full h-10' variant={'outline'}>{item.label}</Button>
+              <Button key={index} className='rounded-full h-10' variant={'outline'}>{item.label}</Button>
             ))
           }
         </div>
