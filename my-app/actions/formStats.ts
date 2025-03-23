@@ -6,7 +6,6 @@ export const getFormStats = async () => {
     const user = await currentUser();
  
     if(!user || !user.id){
-        // throw new Error("User not found")
         console.log("User not found", );
         return;
     }

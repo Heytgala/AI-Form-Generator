@@ -25,7 +25,7 @@ export const getForms = async () => {
 
         return {
             success: true,
-            message: "Forms found",
+            message: "Forms are found",
             data: forms
         }
     } catch (error: any) {

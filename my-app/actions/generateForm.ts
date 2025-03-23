@@ -68,13 +68,13 @@ export const generateForm = async (prevState: unknown, formData: FormData) => {
             }
         });
 
+        revalidatePath("/dashboard/forms");
         return {
             success:true,
             message:"Form generated successfully!",
             data:form
         }
 
-        revalidatePath("/dashboard/forms");
 
     }
     catch(error){
