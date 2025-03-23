@@ -9,3 +9,5 @@ Packages/Libraries:
 5) npm install @clerk/nextjs
 6) npx shadcn@latest init
 7) npx shadcn@latest add input label button card
+8) npm install next-themes
+

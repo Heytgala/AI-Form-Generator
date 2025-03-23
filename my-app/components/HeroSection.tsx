@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import GenerateFormInput from './GenerateFormInput'
 import { Button } from './ui/button'
