@@ -13,3 +13,4 @@ Packages/Libraries:
 9) npx shadcn@latest add progress
 10) npm i zod openai
 11) npx prisma migrate dev --name subscription model created 
+12) npx shadcn@latest add sidebar dialog
