@@ -1,14 +1,48 @@
 "use client"
-import React from 'react'
+import React, { ChangeEvent, useActionState, useEffect, useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { useFormStatus } from 'react-dom'
 import { Sparkle, Sparkles } from 'lucide-react'
+import { generateForm } from '@/actions/generateForm'
+import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
-const GenerateFormInput = () => {
+type Initialstate = {
+  message: string;
+  success: boolean;
+  data?:any
+}
+const initialstate : Initialstate = {
+  message:"",
+  success: false
+}
+
+const GenerateFormInput : React.FC<{text?:string}> = ({text}) => {
+  const[description,setDescription]= useState<string | undefined>("");
+  const [state,formAction] = useActionState(generateForm,initialstate);
+  const router = useRouter();
+
+  const changeEventHandler = (e:ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
+  }
+
+  useEffect(()=>{
+    setDescription(text);
+  },[text])
+  
+  useEffect(()=>{
+    if(state.success){
+      toast(state.message);
+      router.push(`/dashboard/forms/edit/${state.data.id}`)
+    }
+    else if(state.message){
+      toast.error(state.message);
+    }
+  },[router,state])
   return (
-    <form className='flex items-center gap-4 my-8'>
-      <Input placeholder="Write to prompt to generate 'Form' ....."></Input>
+    <form  action={formAction} className='flex items-center gap-4 my-8'>
+      <Input value={description} onChange={changeEventHandler} type="text" placeholder="Write to prompt to generate 'Form' ....."></Input>
       <SubmitButton/>     
     </form>
   )

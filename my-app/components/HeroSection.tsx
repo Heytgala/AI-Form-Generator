@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import GenerateFormInput from './GenerateFormInput'
 import { Button } from './ui/button'
 
@@ -24,6 +24,7 @@ const suggestionbutton: SuggestionText[] = [
 ]
 
 const HeroSection = () => {
+  const[text,setText] = useState<string>("");
   return (
     <section>
       <div className='relative'>
@@ -34,12 +35,12 @@ const HeroSection = () => {
           </div>
         </div>
         {/** Form Input */}  
-        <GenerateFormInput/>
+        <GenerateFormInput text={text}/>
         <div className='grid grid-cols-4 gap-3'>
           
           {
             suggestionbutton.map((item:SuggestionText,index:number)=>(
-              <Button key={index} className='rounded-full h-10' variant={'outline'}>{item.label}</Button>
+              <Button onClick={()=>setText(item.text)} key={index} className='rounded-full h-10' variant={'outline'}>{item.label}</Button>
             ))
           }
         </div>
