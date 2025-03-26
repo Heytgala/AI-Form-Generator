@@ -51,7 +51,7 @@ export const generateForm = async (prevState: unknown, formData: FormData) => {
         
         const completion = await openai.chat.completions.create({
             messages: [{ role: "user", content: `${description} ${prompt}` }],
-            model: "gpt-4o",
+            model: "gpt-3.5-turbo",
         });
 
         const formContent = completion.choices[0]?.message.content;

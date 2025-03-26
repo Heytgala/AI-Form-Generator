@@ -41,8 +41,8 @@ const GenerateFormInput : React.FC<{text?:string}> = ({text}) => {
     }
   },[router,state])
   return (
-    <form  action={formAction} className='flex items-center gap-4 my-8'>
-      <Input value={description} onChange={changeEventHandler} type="text" placeholder="Write to prompt to generate 'Form' ....."></Input>
+    <form action={formAction} className='flex items-center gap-4 my-8'>
+      <Input id="description" name='description' value={description} onChange={changeEventHandler} type="text" placeholder="Write to prompt to generate 'Form' ....." required></Input>
       <SubmitButton/>     
     </form>
   )
@@ -54,7 +54,7 @@ export default GenerateFormInput
 const SubmitButton = () =>{
   const{pending} = useFormStatus();
   return(
-    <Button className='h-12 bg-gradient-to-r from-blue-500 to bg-purple-600'>
+    <Button disabled={pending} className='h-12 bg-gradient-to-r from-blue-500 to bg-purple-600'>
       <Sparkles className='mr-2'/>
       {
         pending?(
