@@ -14,12 +14,16 @@ const Edit = async ({ params }: { params: Promise<{ formId: string }> }) => {
       id: Number(formId),
     },
   });
+
+  console.log(form);
+
+  const formContent = JSON.parse(form.content);
  
   return (
     <Card>
       <CardHeader>
         <CardTitle>
-          <h1 className="font-bold text-2xl text-center">{form.content.formTitle || "NA"}</h1>
+          <h1 className="font-bold text-2xl text-center">{formContent.formTitle || "NA"}</h1>
         </CardTitle>
       </CardHeader>
       <CardContent>
