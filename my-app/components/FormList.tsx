@@ -33,12 +33,15 @@ const FormList: React.FC<Props> = ({ form }) => {
       }
 
   }
+
+  const formContent = typeof form.content === 'string' ? JSON.parse(form.content) : form.content;
+
  
   return (
     <div>
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>{form.content.formTitle}</CardTitle>
+          <CardTitle>{formContent.formTitle}</CardTitle>
           <CardDescription>
             Deploy your new project in one-click.
           </CardDescription>
