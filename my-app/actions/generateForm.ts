@@ -59,12 +59,20 @@ export const generateForm = async (prevState: unknown, formData: FormData) => {
             return { success: false, message: "Failed to generate form content" }
         }
 
+        let parsedFormContent;
+        try {
+            parsedFormContent = JSON.parse(formContent);
+        } catch (error) {
+            console.error("Error parsing formContent JSON:", error);
+            return { success: false, message: "Invalid form content structure" };
+        }
+
         console.log("generated form -> ",formContent);
 
         const form = await prisma.form.create({
             data: {
                 ownerId: user.id,
-                content: formContent
+                content: parsedFormContent
             }
         });
 

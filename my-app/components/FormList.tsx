@@ -50,7 +50,7 @@ const FormList: React.FC<Props> = ({ form }) => {
           <Link href={`/dashboard/forms/${form.id}/submissions`}>
             {" "}
             <Button variant={"link"} className="text-blue-600">
-              Submission - {form.submissions}
+              Submission - {form.submission}
             </Button>{" "}
           </Link>
         </CardContent>
