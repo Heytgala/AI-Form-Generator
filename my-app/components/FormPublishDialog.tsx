@@ -33,8 +33,7 @@ const FormPublishDialog: React.FC<Props> = ({ formId, open, onOpenChange }) => {
         <DialogHeader>
           <DialogTitle>Your Form has been successfully published!</DialogTitle>
           <DialogDescription>
-            You can now share your form with the workd and start collection
-            response.
+            You can now share your form with the world and start collection response.
           </DialogDescription>
         </DialogHeader>
         <div>
