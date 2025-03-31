@@ -14,3 +14,5 @@ Packages/Libraries:
 10) npm i zod openai
 11) npx prisma migrate dev --name subscription model created 
 12) npx shadcn@latest add sidebar dialog
+13) npm i @stripe/stripe-js
+14) npm i stripe -g
