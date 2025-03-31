@@ -16,3 +16,9 @@ Packages/Libraries:
 12) npx shadcn@latest add sidebar dialog
 13) npm i @stripe/stripe-js
 14) npm i stripe -g
+
+WebHook Integration:
+Developer -> Webhook
+1) stripe login
+2) stripe listen --forward-to localhost:3000/api/webhook
+3) stripe trigger payment_intent.succeeded
