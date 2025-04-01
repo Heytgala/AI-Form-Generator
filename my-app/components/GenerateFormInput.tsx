@@ -3,10 +3,11 @@ import React, { ChangeEvent, useActionState, useEffect, useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { useFormStatus } from 'react-dom'
-import { Sparkle, Sparkles } from 'lucide-react'
+import { Lock, Sparkle, Sparkles } from 'lucide-react'
 import { generateForm } from '@/actions/generateForm'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import { MAX_FREE_FORM } from '@/lib/utils'
 
 type Initialstate = {
   message: string;
@@ -18,7 +19,13 @@ const initialstate : Initialstate = {
   success: false
 }
 
-const GenerateFormInput : React.FC<{text?:string}> = ({text}) => {
+type Props = {
+  text?:string,
+  totalforms?:number,
+  isSubscribed?:boolean,
+}
+
+const GenerateFormInput : React.FC<Props> = ({text,totalforms,isSubscribed}) => {
   const[description,setDescription]= useState<string | undefined>("");
   const [state,formAction] = useActionState(generateForm,initialstate);
   const router = useRouter();
@@ -43,7 +50,10 @@ const GenerateFormInput : React.FC<{text?:string}> = ({text}) => {
   return (
     <form action={formAction} className='flex items-center gap-4 my-8'>
       <Input id="description" name='description' value={description} onChange={changeEventHandler} type="text" placeholder="Write to prompt to generate 'Form' ....." required></Input>
-      <SubmitButton/>     
+      {
+        isSubscribed && totalforms! <= MAX_FREE_FORM ? <SubmitButton/> : <Button disabled className='h-12'><Lock/> Upgrade Plan</Button>
+      }
+      
     </form>
   )
 }

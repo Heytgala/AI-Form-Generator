@@ -4,7 +4,6 @@ import React from 'react'
 
 const page =  async () => {
    const data = await getFormStats();
-   
     
   return (
     <div>

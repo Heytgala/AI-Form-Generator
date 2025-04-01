@@ -44,7 +44,7 @@ const DashboardSidebar = async () => {
         <SidebarGroup>
           <SidebarGroupLabel className="flex items-center justify-between">
             <Link href={"/"} className="font-bold text-lg">
-              Formify.ai-Patel
+              AI Form Generator
             </Link>
           </SidebarGroupLabel>
           <Separator className="my-2"/>

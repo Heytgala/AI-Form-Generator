@@ -23,7 +23,12 @@ const suggestionbutton: SuggestionText[] = [
   },
 ]
 
-const HeroSection = () => {
+type Props = {
+  totalforms: number,
+  isSubscribed: boolean
+}
+
+const HeroSection : React.FC<Props> = ({totalforms,isSubscribed}) => {
   const[text,setText] = useState<string>("");
   return (
     <section>
@@ -35,7 +40,7 @@ const HeroSection = () => {
           </div>
         </div>
         {/** Form Input */}  
-        <GenerateFormInput text={text}/>
+        <GenerateFormInput text={text} totalforms ={totalforms} isSubscribed ={isSubscribed}/>
         <div className='grid grid-cols-4 gap-3'>
           
           {
