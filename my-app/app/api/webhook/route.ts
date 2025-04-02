@@ -20,11 +20,6 @@ export async function POST(req: Request) {
   if (!sig) {
     return NextResponse.json({ error: "Missing Stripe signature header" }, { status: 400 });
   }
-
-  console.log('Received Stripe Signature:', sig);
-  console.log('Received Payload:', payload);
-  console.log('Webhook Secret:', process.env.WEBHOOK_ENDPOINT_SECRET);
-
   
   let event: Stripe.Event;
 

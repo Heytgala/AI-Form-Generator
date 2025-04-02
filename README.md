@@ -22,3 +22,10 @@ Developer -> Webhook
 1) stripe login
 2) stripe listen --forward-to localhost:3000/api/webhook
 3) stripe trigger payment_intent.succeeded
+
+Docker Integration:
+1) Create Dockerfile
+2) Add dockerignore. This works similar to gitignore
+3) docker build 
+4) docker images
+5) docker run -it -p 3000:3000 formgenerator

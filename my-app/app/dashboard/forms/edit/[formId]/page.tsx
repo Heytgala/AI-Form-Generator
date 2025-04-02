@@ -15,7 +15,7 @@ const Edit = async ({ params }: { params: Promise<{ formId: string }> }) => {
     },
   });
 
-  console.log(form);
+  //console.log(form);
 
   //const formContent = JSON.parse(form.content);
  

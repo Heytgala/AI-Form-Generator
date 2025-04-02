@@ -67,7 +67,7 @@ export const generateForm = async (prevState: unknown, formData: FormData) => {
             return { success: false, message: "Invalid form content structure" };
         }
 
-        console.log("generated form -> ",formContent);
+        //("generated form -> ",formContent);
 
         const form = await prisma.form.create({
             data: {

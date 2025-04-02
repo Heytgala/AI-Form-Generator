@@ -4,10 +4,14 @@ import Footer from '@/components/Footer'
 import HeroSection from '@/components/HeroSection'
 import Pricing from '@/components/Pricing'
 import { currentUser } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 const HomePage = async() => {
   const user = await currentUser();
+  if(!user){
+    redirect("/sign-in");
+  }
   const forms = await getForms();
   const totalformcreated = forms?.data?.length || 0 as number;
   const isSubscribed = await getUserSubscription(user?.id as string) as boolean;
