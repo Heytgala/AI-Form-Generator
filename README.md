@@ -28,4 +28,6 @@ Docker Integration:
 2) Add dockerignore. This works similar to gitignore
 3) docker build 
 4) docker images
-5) docker run -it -p 3000:3000 formgenerator
+5) docker run -it -p 3000:3000 (image-name)
+6) docker ps -a
+7) docker push (hub-image-name)
