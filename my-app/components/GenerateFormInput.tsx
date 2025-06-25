@@ -51,7 +51,12 @@ const GenerateFormInput : React.FC<Props> = ({text,totalforms,isSubscribed}) => 
     <form action={formAction} className='flex items-center gap-4 my-8'>
       <Input id="description" name='description' value={description} onChange={changeEventHandler} type="text" placeholder="Write to prompt to generate 'Form' ....." required></Input>
       {
-        isSubscribed && totalforms! <= MAX_FREE_FORM ? <SubmitButton/> : <Button disabled className='h-12'><Lock/> Upgrade Plan</Button>
+        (isSubscribed || totalforms! < MAX_FREE_FORM)  
+          ? <SubmitButton /> 
+          : <Button disabled className='h-12'><Lock /> Upgrade Plan</Button>
+
+
+        //isSubscribed || totalforms! <= MAX_FREE_FORM ? <SubmitButton/> : <Button disabled className='h-12'><Lock/> Upgrade Plan</Button>
       }
       
     </form>
